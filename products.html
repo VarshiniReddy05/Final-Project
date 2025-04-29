@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - EcoStore</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Eco<span>Store</span></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="account.html" id="account-link">Login</a></li>
+                    <li class="cart-icon">
+                        <a href="#cart" id="cart-btn">
+                            🛒 <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="products">
+            <h2>Our Products</h2>
+            <div class="filter-controls">
+                <select id="category-filter">
+                    <option value="all">All Categories</option>
+                    <option value="home">Home</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="personal-care">Personal Care</option>
+                    <option value="kitchen">Kitchen</option>
+                    <option value="office">Office</option>
+                    <option value="outdoor">Outdoor</option>
+                </select>
+                <select id="price-filter">
+                    <option value="all">All Prices</option>
+                    <option value="0-25">$0 - $25</option>
+                    <option value="25-50">$25 - $50</option>
+                    <option value="50-100">$50 - $100</option>
+                    <option value="100-200">$100 - $200</option>
+                </select>
+                <input type="text" id="search-filter" placeholder="Search products...">
+            </div>
+            <div class="product-grid" id="product-container">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Your Cart</h2>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be loaded here -->
+                <p class="empty-cart">Your cart is empty</p>
+            </div>
+            <div class="cart-total">
+                <p>Total: <span id="cart-total">$0.00</span></p>
+                <button class="btn checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 EcoStore. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+    <!-- Checkout Modal -->
+<div id="checkout-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-checkout">&times;</span>
+        <h2>Checkout</h2>
+        <form id="checkout-form">
+            <div class="form-group">
+                <label for="checkout-name">Full Name</label>
+                <input type="text" id="checkout-name" required>
+            </div>
+            <div class="form-group">
+                <label for="checkout-email">Email</label>
+                <input type="email" id="checkout-email" required>
+            </div>
+            <div class="form-group">
+                <label for="checkout-address">Shipping Address</label>
+                <textarea id="checkout-address" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="checkout-payment">Payment Method</label>
+                <select id="checkout-payment" required>
+                    <option value="credit">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="bank">Bank Transfer</option>
+                </select>
+            </div>
+            <button type="submit" class="btn">Place Order</button>
+        </form>
+    </div>
+</div>
+
+<!-- Order Confirmation Modal -->
+<div id="confirmation-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-confirmation">&times;</span>
+        <div class="confirmation-content">
+            <h2>Order Confirmed!</h2>
+            <p>Thank you for your purchase. Your order has been placed successfully.</p>
+            <p>Order ID: <span id="order-id"></span></p>
+            <p>We've sent a confirmation email to <span id="confirmation-email"></span></p>
+            <button class="btn" id="continue-shopping">Continue Shopping</button>
+        </div>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
